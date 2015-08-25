@@ -1,0 +1,43 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+#content{
+		width: 900px;
+		margin:10px auto;
+	}
+#header{
+	width: 100%;
+	padding: 15px;
+	background-color: #F1F1F1;
+}
+#header p{
+	margin-bottom: 0px;
+}
+.vid{
+	border:1px solid silver;
+	width: 270px;
+	margin:7px;
+	padding:3px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+}
+.rating{
+	color:red;
+
+}
+#loading{
+	display: none;
+	width: 100px;
+	margin: 20px auto;
+}
+.axis path {
+    fill: none;
+    stroke: #777;
+    shape-rendering: crispEdges;
+}
+.axis text {
+    font-family: Lato;
+    font-size: 13px;
+}

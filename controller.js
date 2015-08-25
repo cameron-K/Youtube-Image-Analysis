@@ -8,10 +8,11 @@ module.exports=(function(){
 
 	return{
 		searchYT:function(req,res){
+			
 			var vid_objs=[];
 			var search=encodeURI(req.body.search);
 
-			var url_string='https://www.googleapis.com/youtube/v3/search?part=id&q='+search+'&type=video&order=viewCount&maxResults=20&key='+ACCESS_TOKEN;
+			var url_string='https://www.googleapis.com/youtube/v3/search?part=id&q='+search+'&type=video&order=viewCount&maxResults=36&key='+ACCESS_TOKEN;
 			request.get(url_string,function(err,header,body){
 				if (err) throw err;
 
@@ -24,7 +25,6 @@ module.exports=(function(){
 				for(vid in videos){
 					videoIds.push(videos[vid].id.videoId);
 				}
-				console.log(videoIds);
 
 				request.get('https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id='+videoIds.join(",")+'&type=video&key='+ACCESS_TOKEN,function(err,header,body){
 
@@ -54,7 +54,9 @@ module.exports=(function(){
 						function closure(vid,vid_objs){
 							var destination=fs.createWriteStream('public/images/temp/'+vid_objs[vid].id+'.jpg');
 
-							
+							 destination.on('error', function (err) {
+							    console.log(err);
+							  });
 							request(vid_objs[vid].thumb).pipe(destination).on('finish',function(){
 
 

@@ -12,7 +12,7 @@ module.exports=(function(){
 			var vid_objs=[];
 			var search=encodeURI(req.body.search);
 
-			var url_string='https://www.googleapis.com/youtube/v3/search?part=id&q='+search+'&type=video&order=viewCount&maxResults=36&key='+ACCESS_TOKEN;
+			var url_string='https://www.googleapis.com/youtube/v3/search?part=id&q='+search+'&type=video&order=viewCount&maxResults=18&key='+ACCESS_TOKEN;
 			request.get(url_string,function(err,header,body){
 				if (err) throw err;
 
@@ -64,11 +64,11 @@ module.exports=(function(){
 								function(err){
 									if (err) throw err
 									fs.readFile('public/images/temp/'+vid_objs[vid].id+'.png', function (err, imgData) {
-										complete++;
+										
 										if (err) throw err;
 										var api = resemble(imgData).onComplete(function(data){
 											vid_objs[vid].analysis=data;
-
+											complete++;
 											if(complete>=vid_objs.length){
 												// for(vid in vid_objs){
 												// 	// fs.unlink('public/images/'+vid_objs[vid].id+'.png',function(err){
@@ -86,14 +86,9 @@ module.exports=(function(){
 								})
 							});
 						}
-
 					}
-					
 				}
 			});
-
-
 		}
 	}
-	
 })();

@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		var ACCESS_TOKEN='AIzaSyCzqlrPbUXrLHS8Sy5OGO6FKsdAm4dhOJ0';
+
+$.get('https://www.googleapis.com/youtube/v3/search?part=snippet&q=ambient&type=video&key='+ACCESS_TOKEN,function(err,results,body){
+	// if (err) throw err
+	
+	console.log(body);
+})
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

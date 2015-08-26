@@ -12,9 +12,11 @@
 		<h3>RGB and average brightness analysis of Youtube thumbnails over varying like/dislike ratios</h3>
 		<p>Enter a search term to analyze the thumbnails of the most-viewed, related videos</p>
 	</div>
-	
-	<input id='search' type='text' name='search'>
+
+	<input id='search' type='text' placeholder='search'>
+	<input id='num_of_results' type='text' placeholder='# of results (<=50)'>
 	<input type='button' onclick='searchYT()' value='search'>
+	<span id='error'></span>
 	
 	<img id='loading' src="images/loader.gif">
 	
@@ -22,7 +24,7 @@
 
         <div class="jumbotron">
 
-            <svg id="visualisation" width="1000" height="500"></svg>
+            <div id="visualisation" width="1000" height="500"></div>
             
             <script>
                 

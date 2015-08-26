@@ -11,8 +11,19 @@ module.exports=(function(){
 			
 			var vid_objs=[];
 			var search=encodeURI(req.body.search);
+			var num_of_results=req.body.num;
+			// num_of_results=num_of_results.replace('.','');
+			
+			if(!num_of_results||isNaN(num_of_results)){
+				num_of_results=21;
+			}
+			else if(num_of_results>50||num_of_results<1){
+				res.json({error:'Please enter a whole number less than 51'});
+			}
+			 
+			
 
-			var url_string='https://www.googleapis.com/youtube/v3/search?part=id&q='+search+'&type=video&order=viewCount&maxResults=18&key='+ACCESS_TOKEN;
+			var url_string='https://www.googleapis.com/youtube/v3/search?part=id&q='+search+'&type=video&order=viewCount&maxResults='+num_of_results+'&key='+ACCESS_TOKEN;
 			request.get(url_string,function(err,header,body){
 				if (err) throw err;
 

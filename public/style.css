@@ -41,3 +41,30 @@
     font-family: Lato;
     font-size: 13px;
 }
+
+#error{
+	color:red;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: #000;
+}
+
+.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  pointer-events: none;
+}
+#visualisation{
+	display: none;
+	background-color: #F5F5F5;
+	border:2px solid silver;
+}
